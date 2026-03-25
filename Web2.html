@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Hub</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #1b1b1b, #2e2e2e, #3d3d3d);
+      color: #f5f5f5;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      animation: fadeDown 1s ease;
+      letter-spacing: 1px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .timeline-item {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .timeline-item:hover {
+      text-decoration: underline;
+    }
+
+    .content-box {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #f5f5f5;
+      color: black;
+      margin-top: 10px;
+    }
+
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📜 History Hub</h1>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>🏛️ Ancient Civilizations</h2>
+      <div class="timeline-item" onclick="showInfo('egypt')">Ancient Egypt</div>
+      <div class="timeline-item" onclick="showInfo('rome')">Roman Empire</div>
+      <div class="timeline-item" onclick="showInfo('greece')">Ancient Greece</div>
+      <div class="content-box" id="infoBox">Click a civilization to learn more.</div>
+    </div>
+
+    <div class="card">
+      <h2>⚔️ Major Events</h2>
+      <div class="timeline-item" onclick="showEvent('ww1')">World War I</div>
+      <div class="timeline-item" onclick="showEvent('ww2')">World War II</div>
+      <div class="timeline-item" onclick="showEvent('moon')">Moon Landing</div>
+      <div class="content-box" id="eventBox">Click an event to explore it.</div>
+    </div>
+
+    <div class="card">
+      <h2>🧠 Did You Know?</h2>
+      <p id="fact">Click the button for a random history fact.</p>
+      <button onclick="newFact()">New Fact</button>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Explore the past. Understand the future.</p>
+  </div>
+
+  <script>
+    function showInfo(type) {
+      const box = document.getElementById("infoBox");
+      const data = {
+        egypt: "Ancient Egypt thrived along the Nile River and is famous for pyramids, pharaohs, and hieroglyphics.",
+        rome: "The Roman Empire was one of the largest in history, known for engineering, law, and military power.",
+        greece: "Ancient Greece laid the foundations of democracy, philosophy, and the Olympic Games."
+      };
+      box.innerText = data[type];
+    }
+
+    function showEvent(type) {
+      const box = document.getElementById("eventBox");
+      const data = {
+        ww1: "World War I (1914–1918) involved many global powers and reshaped Europe.",
+        ww2: "World War II (1939–1945) was the deadliest conflict in human history.",
+        moon: "In 1969, humans first landed on the Moon, marking a major achievement in space exploration."
+      };
+      box.innerText = data[type];
+    }
+
+    function newFact() {
+      const facts = [
+        "The Great Wall of China is over 13,000 miles long.",
+        "Cleopatra lived closer to the Moon landing than to the building of the pyramids.",
+        "Napoleon was once attacked by a horde of rabbits.",
+        "Oxford University is older than the Aztec Empire."
+      ];
+      const random = Math.floor(Math.random() * facts.length);
+      document.getElementById("fact").innerText = facts[random];
+    }
+  </script>
+
+</body>
+</html>
