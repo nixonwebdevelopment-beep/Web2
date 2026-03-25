@@ -28,118 +28,118 @@ footer{text-align:center;padding:30px;border-top:1px solid #333;margin-top:40px}
 <body>
 
 <header>
-<h1>📜 History Universe</h1>
+<h1>History Universe</h1>
 <nav>
-<a href="#ancient">Ancient</a>
-<a href="#events">Events</a>
+<a href="#ancient">Ancient Civilizations</a>
+<a href="#events">Major Events</a>
 <a href="#timeline">Timeline</a>
 <a href="#quiz">Quiz</a>
 </nav>
 </header>
 
 <section id="ancient">
-<h2>🏛️ Ancient Civilizations</h2>
+<h2>Ancient Civilizations</h2>
 <div class="grid">
 <div class="card">
-<h3>Egypt</h3>
-<p>Pyramids, pharaohs, and the Nile.</p>
+<h3>Ancient Egypt</h3>
+<p>Known for its pyramids, pharaohs, and reliance on the Nile River.</p>
 </div>
 <div class="card">
-<h3>Rome</h3>
-<p>Empire, engineering, military.</p>
+<h3>Roman Empire</h3>
+<p>A powerful empire that shaped law, engineering, and governance.</p>
 </div>
 <div class="card">
-<h3>Greece</h3>
-<p>Philosophy, democracy, Olympics.</p>
+<h3>Ancient Greece</h3>
+<p>Influential in philosophy, politics, and early democratic systems.</p>
 </div>
 <div class="card">
-<h3>China</h3>
-<p>Dynasties, inventions, Great Wall.</p>
+<h3>Ancient China</h3>
+<p>Characterized by dynasties, major inventions, and long-lasting cultural traditions.</p>
 </div>
 </div>
 </section>
 
 <section id="events">
-<h2>⚔️ Major Events</h2>
+<h2>Major Historical Events</h2>
 <div class="grid">
 <div class="card">
 <h3>World War I</h3>
-<p>1914–1918 global conflict.</p>
+<p>A global conflict from 1914 to 1918 that reshaped Europe and international relations.</p>
 </div>
 <div class="card">
 <h3>World War II</h3>
-<p>1939–1945 deadliest war.</p>
+<p>A global war from 1939 to 1945, widely regarded as the deadliest conflict in history.</p>
 </div>
 <div class="card">
 <h3>Cold War</h3>
-<p>USA vs USSR tensions.</p>
+<p>A period of political and military tension between the United States and the Soviet Union.</p>
 </div>
 <div class="card">
 <h3>Moon Landing</h3>
-<p>1969 human space breakthrough.</p>
+<p>In 1969, humans landed on the Moon, marking a major milestone in space exploration.</p>
 </div>
 </div>
 </section>
 
 <section id="timeline">
-<h2>⏳ Interactive Timeline</h2>
+<h2>Interactive Timeline</h2>
 <div class="card">
-<div class="timeline-item" onclick="timeline('ancient')">3000 BC - First Civilizations</div>
-<div class="timeline-item" onclick="timeline('rome')">27 BC - Roman Empire</div>
-<div class="timeline-item" onclick="timeline('middle')">1400s - Renaissance</div>
-<div class="timeline-item" onclick="timeline('modern')">1900s - Modern Era</div>
-<div class="box" id="timelineBox">Click to explore time periods.</div>
+<div class="timeline-item" onclick="timeline('ancient')">c. 3000 BC – Early Civilizations</div>
+<div class="timeline-item" onclick="timeline('rome')">27 BC – Rise of the Roman Empire</div>
+<div class="timeline-item" onclick="timeline('middle')">14th–17th Century – Renaissance</div>
+<div class="timeline-item" onclick="timeline('modern')">20th Century – Modern Era</div>
+<div class="box" id="timelineBox">Select a period to view details.</div>
 </div>
 </section>
 
 <section>
-<h2>🧠 Random Facts</h2>
+<h2>Historical Facts</h2>
 <div class="card">
-<p id="fact">Click for a fact.</p>
-<button onclick="fact()">New Fact</button>
+<p id="fact">Select the button to display a historical fact.</p>
+<button onclick="fact()">Generate Fact</button>
 </div>
 </section>
 
 <section id="quiz">
-<h2>🎯 History Quiz</h2>
+<h2>History Quiz</h2>
 <div class="card">
-<p id="question">Question will appear here</p>
-<input id="answer" placeholder="Your answer...">
-<button onclick="check()">Submit</button>
+<p id="question"></p>
+<input id="answer" placeholder="Enter your answer">
+<button onclick="check()">Submit Answer</button>
 <p id="result"></p>
 </div>
 </section>
 
 <footer>
-<p>Massive History Site • Built for Learning</p>
+<p>This website is designed as an interactive introduction to world history.</p>
 </footer>
 
 <script>
 function timeline(type){
 const data={
-ancient:"First civilizations formed in Mesopotamia and Egypt.",
-rome:"Rome becomes a powerful empire influencing law and culture.",
-middle:"Renaissance brings art, science, and exploration.",
-modern:"Industrialization and global wars shape today’s world."
+ancient:"The earliest civilizations developed in regions such as Mesopotamia and Egypt.",
+rome:"The Roman Empire expanded across Europe and influenced governance, law, and infrastructure.",
+middle:"The Renaissance marked a revival in art, science, and exploration across Europe.",
+modern:"The modern era includes industrialization, global conflicts, and rapid technological advancement."
 };
 document.getElementById("timelineBox").innerText=data[type];
 }
 
 function fact(){
 const facts=[
-"Vikings used cats on ships.",
-"Napoleon was once attacked by rabbits.",
-"Cleopatra lived closer to the iPhone than pyramids.",
-"The shortest war lasted 38 minutes."
+"The Great Wall of China stretches over 13,000 miles.",
+"Cleopatra lived closer in time to the Moon landing than to the construction of the pyramids.",
+"The shortest recorded war lasted less than one hour.",
+"Oxford University is older than the Aztec Empire."
 ];
 let r=Math.floor(Math.random()*facts.length);
 document.getElementById("fact").innerText=facts[r];
 }
 
 const quiz=[
-{q:"Who discovered America?",a:"columbus"},
-{q:"When did WW2 end?",a:"1945"},
-{q:"First man on the moon?",a:"armstrong"}
+{q:"Who is credited with discovering America?",a:"columbus"},
+{q:"In what year did World War II end?",a:"1945"},
+{q:"Who was the first person to walk on the Moon?",a:"armstrong"}
 ];
 let current=0;
 
@@ -152,7 +152,7 @@ let user=document.getElementById("answer").value.toLowerCase();
 if(user.includes(quiz[current].a)){
 document.getElementById("result").innerText="Correct";
 }else{
-document.getElementById("result").innerText="Wrong";
+document.getElementById("result").innerText="Incorrect";
 }
 current=(current+1)%quiz.length;
 load();
